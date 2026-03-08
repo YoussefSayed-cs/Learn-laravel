@@ -35,7 +35,28 @@ class PostController extends Controller
 
         Post::factory(100)->create(); //use the factory to create a new post with random data
 
-        return redirect('/posts'); //redirect to the posts index page after creating a new post
+        return response(content: "successful creation"); //redirect to the posts index page after creating a new post
+    }
+
+
+    function update($id)
+    {
+        $post = Post::findOrFail($id); //fetch the post by id or fail if not found
+        $post->update([
+            'title' => 'Updated Post Title',
+            'body' => 'This is the updated content of the post.',
+            'published' => false,
+            'author' => 'Youssef Updated',
+        ]); //update the post with new data
+
+        return redirect('/posts'); //redirect to the posts index page after updating the post
+    }
+
+
+    function destroy($id)
+    {
+        
+        Post::destroy($id); //delete the post by id
     }
 }
 

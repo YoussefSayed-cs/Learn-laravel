@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Job extends Model
 {
+
+   protected $keyType = 'string'; //specify the primary key type if it is not an integer
+
+    protected $primaryKey = 'id'; //specify the primary key field if it is not 'id'
+
+    protected $public = false; //specify that the primary key is not auto-incrementing
+    
     public static function getAllJobs()
     {
 
