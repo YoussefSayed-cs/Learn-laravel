@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\API;
 
 use App\Models\Post;
-use App\models\PostFactory; 
 use Illuminate\Http\Request;
 
 class PostRequest
@@ -13,8 +12,8 @@ class PostRequest
      */
     public function index()
     {
-        //@ToDO: Implement pagination and filtering
-        
+        $data = Post::paginate(5); //fetch all posts from the database    
+        return response()->json($data, 200); //return a JSON response with the data    
     }
 
     /**

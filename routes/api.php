@@ -14,9 +14,7 @@ use App\Http\Controllers\API\TagRequest;
 */
 
 // Post API
-
 Route::apiResource('/posts', PostRequest::class); //use apiResource to generate only the API routes for the posts controller
-
 
 // Comment API
 Route::apiResource('/comments', CommentRequest::class); //use apiResource to generate only the API routes for the comments controller
