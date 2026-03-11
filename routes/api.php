@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\TagController; 
+use App\Http\Controllers\API\PostRequest;
+use App\Http\Controllers\API\CommentRequest;
+use App\Http\Controllers\API\TagRequest; 
 
 
 /*|--------------------------------------------------------------------------
@@ -12,16 +12,15 @@ use App\Http\Controllers\TagController;
 | Response => json, status code
 |--------------------------------------------------------------------------
 */
+
 // Post API
-Route::post('/posts', [PostController::class, 'create']);
-Route::put('/posts/{id}', [PostController::class, 'update']);
-Route::delete('/posts/{id}', [PostController::class, 'destroy']);
+
+Route::apiResource('/posts', PostRequest::class); //use apiResource to generate only the API routes for the posts controller
 
 
 // Comment API
-Route::post('/comments', [CommentController::class, 'create']);
-
+Route::apiResource('/comments', CommentRequest::class); //use apiResource to generate only the API routes for the comments controller
 
 // Tag API
-Route::post('/tags', [TagController::class, 'create']);
+Route::apiResource('/tags', TagRequest::class); //use apiResource to generate only the API routes for the tags controller
 
