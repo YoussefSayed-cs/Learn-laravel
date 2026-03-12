@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\web\IndexController;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\web\PostController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\web\CommentController;
 use App\Http\Controllers\web\TagController;
 use Illuminate\Support\Facades\Route;
@@ -9,12 +12,12 @@ use Illuminate\Support\Facades\Route;
 
 
 /*
-IndexController Routes
+Invokable Routes
 */
 Route::get('/' , [IndexController::class , 'index'])->name('index');
-Route::get('/jobs' , [IndexController::class , 'job'])->name('job');
-Route::get('/about' , [IndexController::class , 'about'])->name('about');
-Route::get('/contact' , [IndexController::class , 'contact'])->name('contact');
+Route::get('/jobs' , [JobController::class , '__invoke'])->name('jobs');
+Route::get('/about' , [AboutController::class , '__invoke'])->name('about'); ;
+Route::get('/contact' , [ContactController::class , '__invoke'])->name('contact');
 
  
 

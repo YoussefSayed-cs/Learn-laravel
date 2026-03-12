@@ -11,18 +11,4 @@ class IndexController extends Controller
         return view('index' , ['title' => 'Home']);
     }
 
-    public function about()
-    {
-        return view('about' , ['title' => 'About Us']);
-    }
-
-    public function contact()
-    {
-        return view('contact' , ['title' => 'Contact Us']);
-    }
-
-    public function job()
-    {
-        return view('job');
-    }   
 }
