@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\models\PostFactory;
 
 use Illuminate\Http\Request;
+use Pest\Support\View;
 
 class PostController extends Controller
 {
@@ -25,7 +26,7 @@ class PostController extends Controller
     public function create()
     { 
         Post::factory(10)->create(); //use the factory to create a new post with random data
-        return response(content: ["message" => "Successful Creation"], status: 201); //redirect to the posts index page after creating a new post
+        return View('posts.create'); //return the view for creating a new post
     }
 
     /**

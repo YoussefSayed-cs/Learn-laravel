@@ -35,7 +35,7 @@
               <x-nav-link href="/" :active="request()->routeIs('index')">Home</x-nav-link>
               <x-nav-link href="/about" :active="request()->routeIs('about')">About</x-nav-link>
               <x-nav-link href="/contact" :active="request()->routeIs('contact')">Contact</x-nav-link>
-              <x-nav-link href="/jobs" :active="request()->routeIs('jobs')">Jobs</x-nav-link>
+              <x-nav-link href="/posts" :active="request()->routeIs('posts')">Posts</x-nav-link>
             </div>
           </div>
 
