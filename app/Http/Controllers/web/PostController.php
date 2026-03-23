@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\web;
 
+use App\Http\Requests\PostRequest;
 use App\Models\Post; 
 use App\models\PostFactory;
 
@@ -32,11 +33,9 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
-        //@TODO: validate the request data before creating a new post
-
-        print_r($request->all()); //print the request data to the console for debugging purposes
+      print_r($request->all()); //print the validated data from the request
     }
 
     /**
