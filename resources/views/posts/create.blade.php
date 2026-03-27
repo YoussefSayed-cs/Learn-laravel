@@ -1,5 +1,5 @@
     <x-layout :title="$title ?? 'Create Post'">
-        <form method="post" action="/posts" class="mx-auto max-w-2xl py-10 px-4 sm:px-6 lg:px-8">
+        <form method="post" action="/posts" class="mx-auto max-w-2xl py-10 px-4 sm:px-6 lg:px-8 color:-gray-900">
             @csrf
             <div class="space-y-12">
                 <div class="border-b border-gray-900/10 pb-12">
@@ -27,7 +27,13 @@
                         <div class="sm:col-span-3">
                             <label for="author" class="block text-sm/6 font-medium text-gray-900">Author</label>
                             <div class="mt-2">
-                                <input id="author" type="text" value="{{ old('author') }}" name="author" autocomplete="family-name" class="{{ $errors->has('author') ? 'border-red-500' : 'border-gray-300' }} block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+
+                                <input id="author" type="text" value="{{ old('author') }}" name="author" autocomplete="family-name" 
+                                class="{{ $errors->has('author') ? 'outline-red-600' : 'outline-gray-300' }} 
+                                block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline-1
+                               -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2
+                                focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6" />
+
                             </div>
                             @error('author')
                             <span class="mt-2 text-sm/6 text-red-600">{{ $message }}</span>

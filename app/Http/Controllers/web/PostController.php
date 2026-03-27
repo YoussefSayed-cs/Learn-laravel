@@ -35,10 +35,18 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-      print_r($request->all()); //print the validated data from the request
+      $post  = new Post(); //create a new instance of the Post model
+      $post->title = $request->input('title'); //set the title of the post from the request input
+      $post->body = $request->input('body'); //set the body of the post from the request input
+      $post->published = $request->has('published'); //set the published status of the post from the request input
+      $post->author = $request->input('author'); //set the author of the post from the request
+
+      $post->save(); //save the post to the database
+
+      return redirect('/posts'); //redirect to the posts index page after saving the post   
     }
 
-    /**
+    /** 
      * Display the specified resource.
      */
     public function show(string $id)

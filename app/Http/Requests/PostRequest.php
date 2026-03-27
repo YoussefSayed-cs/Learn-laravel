@@ -21,7 +21,7 @@ class PostRequest extends FormRequest
             'author' => 'required',
         ];
     }
-
+    
 
     public function messages(): array
     {
