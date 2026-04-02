@@ -79,6 +79,6 @@ class PostController extends Controller
     public function destroy(string $id)
     {
         Post::destroy($id); //delete the post by id
-        return response(content: "Successful Deletion" , status: 204); //redirect to the posts index page after deleting the post
+        return redirect('/posts')->with('success', 'Post deleted successfully.'); //redirect to the posts index page after deleting the post
     }
 }

@@ -19,12 +19,18 @@
 
         <div>
             <a href="/posts/{{ $post->id }}/edit" class="text-indigo-600 hover:text-indigo-900">Edit</a>
-            <button class="text-red-600 hover:text-red-900">Delete</button>
+
+            <form action="/posts/{{ $post->id }}" method="POST" class="inline" 
+            onsubmit="return confirm('Are you sure , this cannot be reversed?')">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
+            </form>
         </div>
 
         <hr class="my-4">
         <h3 class="text-blue-600 font-medium mb-2">Comments for this post:</h3>
-        
+
         @forelse($post->comments as $comment)
         <div class="comment ml-8 bg-gray-50 p-3 mb-2 rounded border-l-4 border-blue-400">
             <h4 class="font-bold text-sm text-gray-700">{{ $comment->title }}</h4>
