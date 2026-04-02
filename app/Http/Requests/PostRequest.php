@@ -14,14 +14,19 @@ class PostRequest extends FormRequest
      */
     public function rules(): array
     {
+        // هنجيب الـ ID مباشرة من الـ Route أو الـ Input
+        $postId = $this->route('post') ?? $this->input('id');
+
         return [
-            'title' => 'required',
+            // استبدل سطر الـ title بالسطر ده
+            'title' => 'bail|required|unique:post,title,' . $postId,
             'body' => 'required',
-            'published' => 'required',
             'author' => 'required',
+
+             'published' => 'nullable',
         ];
     }
-    
+
 
     public function messages(): array
     {

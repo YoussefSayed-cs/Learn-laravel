@@ -3,8 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Post;
-use Str;
-
+use Illuminate\Support\Str; 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -24,7 +23,7 @@ class PostFactory extends Factory
             'body' => $this->faker->paragraph(), //generate a random paragraph for the body
             'published' => $this->faker->boolean(), //generate a random boolean for the published status
             'author' => $this->faker->name(), //generate a random
-            //
+            
         ];
     }
 }

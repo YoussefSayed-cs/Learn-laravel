@@ -57,23 +57,20 @@ class PostController extends Controller
     {
         
         $post = Post::findOrFail($id); //fetch the post by id or fail if not found
-        return view('posts.edit', ['posts' => $post]); //pass the post to
+        return view('posts.edit', ['posts' => $post , "page_title" => "Edit Post " . $post->title]); //pass the post to
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(PostRequest $request, string $id)
     {
+      
         $post = Post::findOrFail($id); //fetch the post by id or fail if not found
-        $post->update([
-            'title' => 'Updated Post Title',
-            'body' => 'This is the updated content of the post.',
-            'published' => false,
-            'author' => 'Youssef Updated',
-        ]); //update the post with new data
+        $post->update($request->validated()); //update the post with the validated request data
+        $post->save(); //save the updated post to the database
 
-        return redirect('/posts'); //redirect to the posts index page after updating the post
+        return redirect('/posts')->with('success', 'Post updated successfully.');  
     }
 
     /**
