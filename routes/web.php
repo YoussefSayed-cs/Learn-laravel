@@ -7,7 +7,9 @@ use App\Http\Controllers\web\PostController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\web\CommentController;
 use App\Http\Controllers\web\TagController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+
 
 
 
@@ -34,3 +36,8 @@ Route::resource('/comments', CommentController::class)->except('destroy');  /*us
 //TagController Routes
 Route::resource('/tags', TagController::class)->only('index', 'show'); /*use resourceful routing for the tags controller
                                                                          to handle all CRUD operations in one line*/
+
+
+//AuthController Routes
+Route::get('/signup' , [AuthController::class , 'ShowsignupForm'])->name('signup.form');
+Route::get('/login' , [AuthController::class , 'ShowloginForm'])->name('login.form');                                                                       
